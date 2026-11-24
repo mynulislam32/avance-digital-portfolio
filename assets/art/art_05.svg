@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg05" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#120A1F"/>
+      <stop offset="60%" stop-color="#281140"/>
+      <stop offset="100%" stop-color="#4C1D6E"/>
+    </linearGradient>
+    <linearGradient id="starlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4"/>
+      <stop offset="50%" stop-color="#E0AAFF"/>
+      <stop offset="100%" stop-color="#7B2CBF"/>
+    </linearGradient>
+    <filter id="glow05">
+      <feGaussianBlur stdDeviation="7" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg05)"/>
+
+  <!-- Mystical Arcane Rune Circle in Background -->
+  <g stroke="#C77DFF" stroke-width="1.5" opacity="0.5" fill="none">
+    <circle cx="400" cy="400" r="240"/>
+    <circle cx="400" cy="400" r="220" stroke-dasharray="8 14"/>
+    <polygon points="400,170 590,500 210,500" stroke-width="1"/>
+    <polygon points="400,630 590,300 210,300" stroke-width="1"/>
+  </g>
+
+  <!-- Sorceress Bust & Shoulders (Flowing Velvet Robes) -->
+  <path d="M 160,1000 C 160,820 240,750 320,720 L 400,750 L 480,720 C 560,750 640,820 640,1000 Z" fill="#1B0C2E" stroke="#7B2CBF" stroke-width="2"/>
+  <!-- Gold filigree collar clasp -->
+  <path d="M 360,720 L 440,720 L 400,760 Z" fill="#FFD700" stroke="#FFF" stroke-width="1"/>
+
+  <!-- Neck & Face -->
+  <path d="M 360,600 L 440,600 L 430,510 L 370,510 Z" fill="#E8D5CA"/>
+  <path d="M 340,490 C 340,410 350,330 400,330 C 450,330 460,410 460,490 C 460,540 435,570 400,570 C 365,570 340,540 340,490 Z" fill="#F8E5D8"/>
+
+  <!-- Ethereal Pointed Elven Ears -->
+  <path d="M 340,470 C 310,440 270,430 250,420 C 275,450 310,475 340,485 Z" fill="#F0D5C5"/>
+  <path d="M 460,470 C 490,440 530,430 550,420 C 525,450 490,475 460,485 Z" fill="#F0D5C5"/>
+
+  <!-- Eyes with Arcane Starlight Glow -->
+  <ellipse cx="375" cy="475" rx="8" ry="5" fill="#E0AAFF" filter="url(#glow05)"/>
+  <ellipse cx="425" cy="475" rx="8" ry="5" fill="#E0AAFF" filter="url(#glow05)"/>
+  <circle cx="375" cy="475" r="3" fill="#FFFFFF"/>
+  <circle cx="425" cy="475" r="3" fill="#FFFFFF"/>
+
+  <!-- Crescent Starlight Tiara (Golden Circlet) -->
+  <g filter="url(#glow05)">
+    <path d="M 330,390 Q 400,420 470,390" stroke="#FFD700" stroke-width="3" fill="none"/>
+    <!-- Inverted Crescent Moon Gem on Forehead -->
+    <path d="M 400,360 C 390,375 390,395 400,410 C 393,398 393,372 400,360 Z" fill="#E0AAFF" stroke="#FFD700" stroke-width="1.5"/>
+  </g>
+
+  <!-- Flowing Ethereal White & Lavender Hair -->
+  <path d="M 340,360 C 320,440 280,560 240,750 C 290,680 330,560 345,460 Z" fill="#F3E8FF" opacity="0.95"/>
+  <path d="M 460,360 C 480,440 520,560 560,750 C 510,680 470,560 455,460 Z" fill="#F3E8FF" opacity="0.95"/>
+  <path d="M 340,360 C 370,280 430,280 460,360 L 440,320 L 400,310 L 360,320 Z" fill="#E9D5FF"/>
+
+  <!-- Floating Glowing Energy Orbs in Hands/Foreground -->
+  <circle cx="280" cy="740" r="28" fill="#E0AAFF" filter="url(#glow05)" opacity="0.8"/>
+  <circle cx="520" cy="740" r="28" fill="#E0AAFF" filter="url(#glow05)" opacity="0.8"/>
+
+  <!-- Tag -->
+  <g transform="translate(60, 910)">
+    <rect x="0" y="0" width="260" height="34" rx="4" fill="#000000" opacity="0.8"/>
+    <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#E0AAFF" letter-spacing="2">05 // THE MYSTIC SORCERESS</text>
+  </g>
+</svg>

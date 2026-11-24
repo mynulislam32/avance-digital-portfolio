@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A. VANCE — Digital Art &amp; Visual Storytelling</title>
+  <meta name="description" content="Visual storytelling, character design, and world-building concept art by digital artist A. Vance.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gallery: {
+              canvas: '#FAFAFA',      // Crisp off-white background
+              surface: '#FFFFFF',     // Pure white card surfaces
+              border: '#EAEAEA',      // Subtle minimalist borders
+              borderDark: '#D4D4D8',
+              charcoal: '#18181B',    // Deep charcoal typography
+              muted: '#71717A',       // Subtle secondary slate
+              lightMuted: '#A1A1AA',
+              badge: '#F4F4F5',
+              accent: '#27272A'
+            }
+          },
+          fontFamily: {
+            display: ['Syne', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body {
+      background-color: #FAFAFA;
+      color: #18181B;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .font-display {
+      font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    }
+    .art-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .art-image {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    }
+    .art-card:hover .art-image {
+      transform: scale(1.035);
+    }
+    .art-card:hover {
+      box-shadow: 0 20px 40px -15px rgba(24, 24, 27, 0.08);
+    }
+    .filter-btn {
+      transition: all 0.25s ease;
+    }
+    .filter-btn.active {
+      background-color: #18181B;
+      color: #FFFFFF;
+      border-color: #18181B;
+    }
+    /* Subtle custom image frame */
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      background: #F4F4F5;
+    }
+    .image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+  </style>
+</head>
+<body class="selection:bg-gallery-charcoal selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- ========================================================================= -->
+  <!-- 1. MINIMAL HEADER                                                         -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-[#FAFAFA]/90 backdrop-blur-md border-b border-gallery-border transition-all">
+    <div class="max-w-[1360px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Artist Name / Logo -->
+      <a href="#home" class="group flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-gallery-charcoal text-white flex items-center justify-center font-display font-bold text-sm tracking-tighter">
+          AV
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-display text-base sm:text-lg font-bold tracking-tight text-gallery-charcoal uppercase">
+            A. Vance
+          </span>
+          <span class="hidden sm:inline-block text-[11px] font-mono tracking-widest text-gallery-lightMuted uppercase font-medium">
+            — Digital Art
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-wider text-gallery-muted">
+        <a href="#gallery" onclick="filterGallery('illustration')" class="hover:text-gallery-charcoal transition-colors">
+          Illustrations
+        </a>
+        <a href="#gallery" onclick="filterGallery('character')" class="hover:text-gallery-charcoal transition-colors">
+          Character Art
+        </a>
+        <a href="#about" class="hover:text-gallery-charcoal transition-colors">
+          About
+        </a>
+        <a href="#commissions" class="hover:text-gallery-charcoal transition-colors flex items-center gap-1.5">
+          <span>Commissions</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        </a>
+      </nav>
+
+      <!-- Small Contact Button & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a 
+          href="#contact" 
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gallery-charcoal hover:bg-black text-white text-xs font-mono font-medium tracking-wider uppercase transition-all shadow-sm"
+        >
+          <span>Contact</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-zinc-400"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-toggle" class="md:hidden p-2 text-gallery-charcoal hover:text-black" aria-label="Toggle Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden md:hidden bg-white border-b border-gallery-border px-6 py-5 space-y-3 text-xs font-mono uppercase tracking-wider text-left text-gallery-charcoal">
+      <a href="#gallery" onclick="filterGallery('all'); toggleMobile();" class="block py-1">● All Portfolio Work</a>
+      <a href="#gallery" onclick="filterGallery('character'); toggleMobile();" class="block py-1 text-gallery-muted">Character Design</a>
+      <a href="#gallery" onclick="filterGallery('illustration'); toggleMobile();" class="block py-1 text-gallery-muted">Editorial Illustration</a>
+      <a href="#gallery" onclick="filterGallery('concept'); toggleMobile();" class="block py-1 text-gallery-muted">Concept Art</a>
+      <a href="#about" onclick="toggleMobile();" class="block py-1 text-gallery-muted">About the Artist</a>
+      <a href="#commissions" onclick="toggleMobile();" class="block py-1 text-emerald-600 font-bold">Commissions: Open</a>
+      <a href="#contact" onclick="toggleMobile();" class="block py-1 text-gallery-muted">Get In Touch</a>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    
+    <!-- ========================================================================= -->
+    <!-- 2. HERO SECTION                                                           -->
+    <!-- ========================================================================= -->
+    <section id="home" class="pt-16 pb-12 sm:pt-24 sm:pb-16 px-6 lg:px-12 max-w-[1360px] mx-auto text-left">
+      <div class="max-w-4xl space-y-6">
+        
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gallery-border text-[11px] font-mono text-gallery-muted shadow-2xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-gallery-charcoal font-semibold">Available for Select Projects</span>
+          <span class="text-zinc-300">&bull;</span>
+          <span>Brooklyn &bull; Worldwide</span>
+        </div>
+
+        <!-- Concise Headline -->
+        <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gallery-charcoal leading-[1.05]">
+          Visual Storytelling <br class="hidden sm:inline" />
+          <span class="text-gallery-muted font-normal">&amp;</span> Character Design.
+        </h1>
+
+        <!-- 2-Line Minimal Bio -->
+        <p class="text-base sm:text-lg text-gallery-muted font-light leading-relaxed max-w-2xl">
+          Independent digital artist and visual development illustrator exploring atmospheric sci-fi worlds, cinematic character narratives, and editorial mythology.
+        </p>
+
+      </div>
+
+      <!-- Subtle Filter Bar -->
+      <div class="pt-12 flex flex-wrap items-center justify-between gap-4 border-b border-gallery-border pb-5">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+          <button 
+            onclick="filterGallery('all')" 
+            id="tab-all" 
+            class="filter-btn active px-4 py-2 rounded-full bg-white border border-gallery-border text-gallery-charcoal hover:border-gallery-charcoal font-medium shadow-2xs"
+          >
+            All Work <span class="text-[10px] opacity-60 ml-1">(09)</span>
+          </button>
+          
+          <button 
+            onclick="filterGallery('character')" 
+            id="tab-character" 
+            class="filter-btn px-4 py-2 rounded-full bg-white border border-gallery-border text-gallery-muted hover:text-gallery-charcoal hover:border-gallery-charcoal font-medium shadow-2xs"
+          >
+            Character Design <span class="text-[10px] opacity-60 ml-1">(03)</span>
+          </button>
+          
+          <button 
+            onclick="filterGallery('illustration')" 
+            id="tab-illustration" 
+            class="filter-btn px-4 py-2 rounded-full bg-white border border-gallery-border text-gallery-muted hover:text-gallery-charcoal hover:border-gallery-charcoal font-medium shadow-2xs"
+          >
+            Editorial Illustration <span class="text-[10px] opacity-60 ml-1">(03)</span>
+          </button>
+          
+          <button 
+            onclick="filterGallery('concept')" 
+            id="tab-concept" 
+            class="filter-btn px-4 py-2 rounded-full bg-white border border-gallery-border text-gallery-muted hover:text-gallery-charcoal hover:border-gallery-charcoal font-medium shadow-2xs"
+          >
+            Concept Art <span class="text-[10px] opacity-60 ml-1">(03)</span>
+          </button>
+        </div>
+
+        <!-- Curated Year / Metric Note -->
+        <div class="hidden lg:flex items-center gap-2 text-xs font-mono text-gallery-lightMuted">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Archive: 2024 &ndash; 2026 Selected Works</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. PORTFOLIO GALLERY GRID (9 DISTINCT ARTWORKS &bull; 3-COL UNIFORM GRID) -->
+    <!-- ========================================================================= -->
+    <section id="gallery" class="px-6 lg:px-12 max-w-[1360px] mx-auto pb-24 text-left">
+      <div id="art-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- CARD 01: Character Design (Cyberpunk Nomad) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="character"
+          onclick="openLightbox('01. Cyberpunk Nomad', 'Character Concept &bull; Digital Illustration', 'assets/art/art_01.png', 'Lead protagonist character exploration for the neo-metropolitan graphic novel syndicate. Features high-collar cyber jacket, neon visor with HUD telemetry, and rainy Neo-Tokyo backdrop.', '2026', 'Personal IP / Graphic Novel')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_01.png" 
+              alt="Cyberpunk Nomad Character Concept" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              01. Cyberpunk Nomad
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2026</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Character Concept</p>
+        </article>
+
+        <!-- CARD 02: Editorial Illustration (Solitude in Kyoto) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="illustration"
+          onclick="openLightbox('02. Solitude in Kyoto', 'Digital Painting &bull; Anime Character Study', 'assets/art/art_02.png', 'Atmospheric narrative anime character study capturing dusk light and quiet reflection in Gion. Giant twilight moon, traditional pagoda silhouette, and drifting sakura petals.', '2025', 'Editorial / Monocle Magazine')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_02.png" 
+              alt="Solitude in Kyoto Anime Character Study" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              02. Solitude in Kyoto
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2025</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Anime Character Study</p>
+        </article>
+
+        <!-- CARD 03: Concept Art (Cybernetic Ronin) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="concept"
+          onclick="openLightbox('03. Cybernetic Ronin', '3D Character Design &bull; Cyberpunk Sculpture', 'assets/art/art_03.png', 'High-polygon cyberpunk warrior bust exploring synthetic anatomy, integrated neural interfaces, kabuto crest, glowing red visor, and high-frequency energy katana blade.', '2026', 'Personal IP / Character Sculpt')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_03.png" 
+              alt="Cybernetic Ronin 3D Character Design" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              03. Cybernetic Ronin
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2026</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">3D Character Design</p>
+        </article>
+
+        <!-- CARD 04: Concept Art (Mecha Pilot Zero) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="concept"
+          onclick="openLightbox('04. Mecha Pilot Zero', 'Sci-Fi Concept Art &bull; Character Plating', 'assets/art/art_04.png', 'Titan-class mecha flight officer suit concept. Ergonomic exoskeleton plating with gold tinted flight visor and HUD cockpit telemetry displays for an unannounced deep-space exploration RPG.', '2025', 'Game Studio Commission')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_04.png" 
+              alt="Mecha Pilot Zero Character Concept" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              04. Mecha Pilot Zero
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2025</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Sci-Fi Concept Art</p>
+        </article>
+
+        <!-- CARD 05: Editorial Illustration (The Mystic Sorceress) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="illustration"
+          onclick="openLightbox('05. The Mystic Sorceress', 'Fantasy Character Art &bull; Digital Portrait', 'assets/art/art_05.png', 'Mythological elven character design capturing ethereal starlight backlight, crescent starlight tiara, flowing lavender hair, and orbiting arcane runes.', '2025', 'Book Cover Illustration')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_05.png" 
+              alt="The Mystic Sorceress Character Art" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              05. The Mystic Sorceress
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2025</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Fantasy Character Art</p>
+        </article>
+
+        <!-- CARD 06: Character Design (Neon Street Shinobi) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="character"
+          onclick="openLightbox('06. Neon Street Shinobi', 'Urban Cyberpunk &bull; Tactical Character Study', 'assets/art/art_06.png', 'Urban cyberpunk operative in midnight Tokyo. Dynamic masked shinobi silhouette crouching on rain-slicked neon skyscraper ledge with dual glowing green kunai.', '2026', 'Graphic Novel Pitch')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_06.png" 
+              alt="Neon Street Shinobi Character Design" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              06. Neon Street Shinobi
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2026</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Character Illustration</p>
+        </article>
+
+        <!-- CARD 07: Editorial Illustration (Cyber Geisha Neo) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="illustration"
+          onclick="openLightbox('07. Cyber Geisha Neo', 'Digital Portrait &bull; Traditional Cybernetic Fusion', 'assets/art/art_07.png', 'Fusion of traditional Japanese ceremonial aesthetics with cybernetic augmentation, porcelain white makeup, gold circuit traces, and fiber-optic kanzashi hairpins.', '2025', 'Cover Art / Neo Tokyo Press')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_07.png" 
+              alt="Cyber Geisha Neo Character Art" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              07. Cyber Geisha Neo
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2025</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Digital Character Art</p>
+        </article>
+
+        <!-- CARD 08: Concept Art (Void Walker) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="concept"
+          onclick="openLightbox('08. Void Walker', 'Grimdark Fantasy &bull; Hooded Wanderer', 'assets/art/art_08.png', 'Silhouette-driven wanderer anatomy for a grimdark fantasy world. Tattered draped cloak, glowing cyan soul-fire eyes, and floating fractured runic artifact.', '2026', 'Collector Edition Art Print')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_08.png" 
+              alt="Void Walker Character Concept" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              08. Void Walker
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2026</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Cinematic Concept Art</p>
+        </article>
+
+        <!-- CARD 09: Character Design (Valkyrie of the Spire) -->
+        <article 
+          class="art-card group cursor-pointer" 
+          data-category="character"
+          onclick="openLightbox('09. Valkyrie of the Spire', 'Sci-Fi Heroine &bull; Winged Warrior', 'assets/art/art_09.png', 'Winged sci-fi celestial warrior with golden solar armor, reflective visor, flowing golden hair, and geometric hard-light wings spanning outward.', '2026', 'Graphic Novel Cover')"
+        >
+          <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-xs">
+            <img 
+              src="assets/art/art_09.png" 
+              alt="Valkyrie of the Spire Character Design" 
+              class="art-image w-full h-full object-cover object-center"
+              loading="eager"
+            >
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-mono text-gallery-charcoal border border-gallery-border opacity-0 group-hover:opacity-100 transition-opacity">
+              View &nearr;
+            </div>
+          </div>
+          <div class="pt-4 flex items-baseline justify-between">
+            <h3 class="font-display font-bold text-sm sm:text-base text-gallery-charcoal group-hover:text-black transition-colors">
+              09. Valkyrie of the Spire
+            </h3>
+            <span class="font-mono text-xs text-gallery-lightMuted">2026</span>
+          </div>
+          <p class="text-xs font-mono text-gallery-muted mt-0.5">Character Concept</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. ABOUT & COMMISSION INFO SECTION (2-COLUMN SPLIT)                       -->
+    <!-- ========================================================================= -->
+    <section id="about" class="py-20 bg-white border-t border-gallery-border text-left">
+      <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left Column: Artist Portrait & Studio Info (5 cols) -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="image-frame rounded-2xl aspect-[4/5] overflow-hidden border border-gallery-border shadow-sm">
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85" 
+                alt="Artist Portrait A. Vance" 
+                class="w-full h-full object-cover object-center filter grayscale contrast-105"
+                loading="eager"
+              >
+            </div>
+            
+            <div class="p-4 rounded-xl bg-gallery-canvas border border-gallery-border flex items-center justify-between text-xs font-mono">
+              <span class="text-gallery-muted">Studio Practice:</span>
+              <strong class="text-gallery-charcoal">Brooklyn, NY &bull; Global Remote</strong>
+            </div>
+          </div>
+
+          <!-- Right Column: Artistic Statement, Tools, Clients, Commission Status (7 cols) -->
+          <div id="commissions" class="lg:col-span-7 space-y-8 lg:pt-2">
+            
+            <!-- Section Eyebrow -->
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-gallery-charcoal"></span>
+              <span class="text-xs font-mono font-bold uppercase tracking-widest text-gallery-muted">
+                Artist Statement &amp; Availability
+              </span>
+            </div>
+
+            <!-- Statement Headline & Bio -->
+            <div class="space-y-4">
+              <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gallery-charcoal leading-[1.12]">
+                Crafting memorable mythologies across digital canvases.
+              </h2>
+              
+              <div class="space-y-3 text-sm sm:text-base text-gallery-muted font-light leading-relaxed">
+                <p>
+                  With over eight years of studio experience bridging entertainment design, literary publishing, and independent gaming, my practice centers on emotional resonance, intentional lighting, and striking character silhouettes.
+                </p>
+                <p>
+                  Every commission begins with narrative discovery—translating subtle emotional subtext into tangible visual forms that elevate worlds and captivate audiences.
+                </p>
+              </div>
+            </div>
+
+            <!-- Core Tools & Disciplines -->
+            <div class="space-y-3 pt-2">
+              <span class="text-xs font-mono uppercase tracking-wider text-gallery-lightMuted font-medium block">
+                Primary Creative Suite:
+              </span>
+              <div class="flex flex-wrap gap-2 font-mono text-xs text-gallery-charcoal">
+                <span class="px-3.5 py-1.5 rounded-lg bg-gallery-canvas border border-gallery-border">Procreate</span>
+                <span class="px-3.5 py-1.5 rounded-lg bg-gallery-canvas border border-gallery-border">Adobe Photoshop</span>
+                <span class="px-3.5 py-1.5 rounded-lg bg-gallery-canvas border border-gallery-border">Blender 3D</span>
+                <span class="px-3.5 py-1.5 rounded-lg bg-gallery-canvas border border-gallery-border">Cinema 4D</span>
+                <span class="px-3.5 py-1.5 rounded-lg bg-gallery-canvas border border-gallery-border">ZBrush</span>
+              </div>
+            </div>
+
+            <!-- Selected Clients / Publications -->
+            <div class="space-y-3 pt-2">
+              <span class="text-xs font-mono uppercase tracking-wider text-gallery-lightMuted font-medium block">
+                Selected Commissions &amp; Partners:
+              </span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-display font-bold uppercase tracking-wider text-gallery-charcoal">
+                <div class="p-3 rounded-lg bg-gallery-canvas border border-gallery-border text-center">A24 Films</div>
+                <div class="p-3 rounded-lg bg-gallery-canvas border border-gallery-border text-center">Riot Games</div>
+                <div class="p-3 rounded-lg bg-gallery-canvas border border-gallery-border text-center">The New Yorker</div>
+                <div class="p-3 rounded-lg bg-gallery-canvas border border-gallery-border text-center">Wired UK</div>
+              </div>
+            </div>
+
+            <!-- Commission Status Card & Primary Action -->
+            <div class="p-6 rounded-2xl bg-gallery-canvas border border-gallery-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="space-y-1">
+                <div class="inline-flex items-center gap-2">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                  </span>
+                  <strong class="font-mono text-xs uppercase tracking-wider text-emerald-800 font-bold">
+                    Commission Status: Open
+                  </strong>
+                </div>
+                <p class="text-xs text-gallery-muted font-mono">
+                  Accepting book covers, commercial key visual art, and character design contracts for Q1/Q2.
+                </p>
+              </div>
+
+              <a 
+                href="mailto:hello@avance-art.studio?subject=Project%20Commission%20Inquiry" 
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gallery-charcoal hover:bg-black text-white text-xs font-mono font-medium uppercase tracking-wider transition-all shadow-sm shrink-0"
+              >
+                <span>Inquire Project</span>
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-zinc-400"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. LIGHTBOX MODAL (HIGH-RES INSPECTION & DETAILS)                         -->
+    <!-- ========================================================================= -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-8" onclick="closeLightbox(event)">
+      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl border border-gallery-border flex flex-col md:flex-row text-left" onclick="event.stopPropagation()">
+        
+        <!-- Artwork View (Left) -->
+        <div class="md:w-3/5 bg-zinc-950 flex items-center justify-center relative p-2 overflow-hidden">
+          <img id="lightbox-img" src="" alt="Artwork View" class="max-h-[60vh] md:max-h-[85vh] w-auto object-contain rounded-lg">
+        </div>
+
+        <!-- Details & Notes (Right) -->
+        <div class="md:w-2/5 p-6 sm:p-8 flex flex-col justify-between space-y-6 overflow-y-auto">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span id="lightbox-year" class="text-[11px] font-mono text-gallery-lightMuted uppercase">2026</span>
+              <button onclick="closeLightbox()" class="p-1 rounded-md text-gallery-muted hover:text-black hover:bg-gallery-canvas" aria-label="Close">
+                <i data-lucide="x" class="w-5 h-5"></i>
+              </button>
+            </div>
+
+            <div>
+              <span id="lightbox-category" class="text-xs font-mono text-gallery-muted uppercase block">Category</span>
+              <h3 id="lightbox-title" class="font-display text-2xl font-bold text-gallery-charcoal mt-1">Artwork Title</h3>
+            </div>
+
+            <p id="lightbox-desc" class="text-xs text-gallery-muted leading-relaxed font-light">
+              Description...
+            </p>
+
+            <div class="pt-4 border-t border-gallery-border space-y-2 font-mono text-xs">
+              <div class="flex justify-between">
+                <span class="text-gallery-lightMuted">Medium:</span>
+                <span class="text-gallery-charcoal font-medium">Digital Paint &bull; High-Res 6K</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gallery-lightMuted">Client / Context:</span>
+                <span id="lightbox-client" class="text-gallery-charcoal font-medium">Personal Exploration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-gallery-border">
+            <a 
+              href="mailto:hello@avance-art.studio?subject=Print%20or%20Licensing%20Inquiry" 
+              class="w-full py-2.5 rounded-lg bg-gallery-charcoal hover:bg-black text-white text-xs font-mono font-medium uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all text-center"
+            >
+              <span>License / Commission Similar Work</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-zinc-400"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 6. MINIMAL FOOTER                                                         -->
+  <!-- ========================================================================= -->
+  <footer id="contact" class="bg-white border-t border-gallery-border py-16 px-6 lg:px-12 text-left">
+    <div class="max-w-[1360px] mx-auto space-y-12">
+      
+      <!-- Top Row: Direct Contact & Inquiries -->
+      <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-6 pb-12 border-b border-gallery-border">
+        <div class="space-y-2">
+          <span class="text-xs font-mono uppercase tracking-widest text-gallery-lightMuted font-bold block">
+            Direct Inquiries &amp; Press
+          </span>
+          <a 
+            href="mailto:hello@avance-art.studio" 
+            class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gallery-charcoal hover:text-zinc-600 transition-colors tracking-tight"
+          >
+            hello@avance-art.studio
+          </a>
+        </div>
+
+        <!-- Social Network Links -->
+        <div class="flex flex-wrap items-center gap-6 font-mono text-xs uppercase tracking-wider text-gallery-muted">
+          <a href="https://artstation.com" target="_blank" rel="noopener noreferrer" class="hover:text-gallery-charcoal transition-colors">
+            ArtStation
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-gallery-charcoal transition-colors">
+            Instagram
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-gallery-charcoal transition-colors">
+            X (Twitter)
+          </a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="hover:text-gallery-charcoal transition-colors">
+            Behance
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Copyright & Legal Minimal Notice -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-gallery-lightMuted">
+        <div>
+          &copy; 2026 A. Vance. All rights reserved. Visual Storytelling &amp; Character Design.
+        </div>
+        <div class="flex items-center gap-4">
+          <span>Digital Art Studio</span>
+          <span>&bull;</span>
+          <a href="#home" class="hover:text-gallery-charcoal transition-colors">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript Logic -->
+  <script>
+    // Initialize Lucide Icons
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+      lucide.createIcons();
+    } else {
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+          lucide.createIcons();
+        }
+      });
+    }
+
+    // Filter Gallery Function
+    function filterGallery(category) {
+      const tabs = ['all', 'character', 'illustration', 'concept'];
+      tabs.forEach(t => {
+        const el = document.getElementById('tab-' + t);
+        if (el) {
+          el.classList.remove('active');
+          el.classList.remove('bg-gallery-charcoal', 'text-white', 'border-gallery-charcoal');
+          el.classList.add('bg-white', 'text-gallery-muted', 'border-gallery-border');
+        }
+      });
+
+      const activeTab = document.getElementById('tab-' + category);
+      if (activeTab) {
+        activeTab.classList.add('active');
+        activeTab.classList.remove('bg-white', 'text-gallery-muted', 'border-gallery-border');
+        activeTab.classList.add('bg-gallery-charcoal', 'text-white', 'border-gallery-charcoal');
+      }
+
+      const cards = document.querySelectorAll('.art-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Lightbox Modal Controls
+    function openLightbox(title, category, img, desc, year, client) {
+      document.getElementById('lightbox-title').innerText = title;
+      document.getElementById('lightbox-category').innerHTML = category;
+      document.getElementById('lightbox-img').src = img;
+      document.getElementById('lightbox-desc').innerText = desc;
+      document.getElementById('lightbox-year').innerText = year;
+      document.getElementById('lightbox-client').innerText = client;
+
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeLightbox(e) {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobile() {
+      const drawer = document.getElementById('mobile-drawer');
+      drawer.classList.toggle('hidden');
+    }
+    const mobileBtn = document.getElementById('mobile-toggle');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', toggleMobile);
+    }
+  </script>
+</body>
+</html>

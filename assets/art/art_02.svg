@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg02" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#140E26"/>
+      <stop offset="50%" stop-color="#3A1C48"/>
+      <stop offset="100%" stop-color="#F27A7D"/>
+    </linearGradient>
+    <linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5EA"/>
+      <stop offset="100%" stop-color="#FED1A2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg02)"/>
+
+  <!-- Giant Twilight Moon -->
+  <circle cx="560" cy="340" r="190" fill="url(#moonGrad)" opacity="0.85"/>
+  <circle cx="540" cy="330" r="180" fill="#3A1C48" opacity="0.15"/>
+
+  <!-- Distant Kyoto Pagoda Silhouette -->
+  <g fill="#160924">
+    <!-- Pagoda Tier 1 -->
+    <path d="M 120,480 L 220,480 L 210,430 L 170,390 L 130,430 Z"/>
+    <path d="M 90,430 Q 170,410 250,430 L 230,410 Q 170,395 110,410 Z"/>
+    <!-- Pagoda Tier 2 -->
+    <path d="M 135,390 L 205,390 L 195,350 L 170,320 L 145,350 Z"/>
+    <path d="M 105,350 Q 170,335 235,350 L 220,335 Q 170,325 120,335 Z"/>
+    <!-- Spire -->
+    <line x1="170" y1="320" x2="170" y2="240" stroke="#160924" stroke-width="4"/>
+    <!-- Ground mountain ridge -->
+    <path d="M 0,680 Q 240,600 500,680 T 800,660 L 800,1000 L 0,1000 Z"/>
+  </g>
+
+  <!-- Glowing Paper Lanterns -->
+  <g>
+    <rect x="180" y="580" width="16" height="26" rx="4" fill="#FFC107" opacity="0.9"/>
+    <rect x="250" y="620" width="14" height="22" rx="4" fill="#FF7043" opacity="0.85"/>
+    <rect x="310" y="600" width="18" height="28" rx="4" fill="#FFC107" opacity="0.95"/>
+  </g>
+
+  <!-- Drifting Sakura Petals -->
+  <g fill="#FFAEC0" opacity="0.85">
+    <ellipse cx="280" cy="220" rx="10" ry="5" transform="rotate(35 280 220)"/>
+    <ellipse cx="340" cy="180" rx="12" ry="6" transform="rotate(-20 340 180)"/>
+    <ellipse cx="460" cy="140" rx="9" ry="4" transform="rotate(45 460 140)"/>
+    <ellipse cx="620" cy="220" rx="11" ry="5" transform="rotate(-15 620 220)"/>
+    <ellipse cx="680" cy="300" rx="8" ry="4" transform="rotate(60 680 300)"/>
+    <ellipse cx="220" cy="340" rx="10" ry="5" transform="rotate(25 220 340)"/>
+    <ellipse cx="400" cy="310" rx="12" ry="6" transform="rotate(-40 400 310)"/>
+  </g>
+
+  <!-- Anime Protagonist Silhouette (Looking at the view in solitude) -->
+  <g fill="#0E0517">
+    <!-- Torso / Traditional Haori coat over modern hoodie -->
+    <path d="M 440,1000 C 440,840 480,780 540,750 L 580,680 C 600,680 660,680 680,680 L 710,750 C 760,780 800,840 800,1000 Z"/>
+    <!-- High scarf / neck -->
+    <path d="M 570,680 Q 625,720 680,680 L 670,630 Q 625,650 580,630 Z" fill="#1C0E2B"/>
+    <!-- Face in side profile facing left -->
+    <path d="M 580,630 C 570,610 565,580 565,560 C 565,550 550,545 550,535 C 550,525 565,520 570,510 C 575,470 610,450 645,450 C 685,450 715,480 715,540 C 715,600 680,640 640,640 Z" fill="#F8DFD2"/>
+    <!-- Eye & Eyelash (Anime style) -->
+    <path d="M 572,522 Q 582,518 592,525" stroke="#1C0E2B" stroke-width="2.5" fill="none"/>
+    <circle cx="582" cy="527" r="3.5" fill="#E63946"/>
+    <!-- Anime Hair (Flowing in wind) -->
+    <path d="M 645,445 C 585,445 565,485 560,515 L 535,535 L 555,545 C 540,575 520,620 480,650 C 520,645 550,620 565,600 C 570,640 590,700 610,740 C 610,710 605,670 600,645 C 640,650 720,620 740,540 C 760,450 690,445 645,445 Z" fill="#1C0E2B"/>
+    <!-- Windblown locks of hair -->
+    <path d="M 550,470 Q 480,480 430,520 Q 480,505 540,495 Z" fill="#1C0E2B"/>
+    <path d="M 560,490 Q 490,520 440,580 Q 500,550 550,530 Z" fill="#1C0E2B"/>
+  </g>
+
+  <!-- Tag -->
+  <g transform="translate(60, 910)">
+    <rect x="0" y="0" width="260" height="34" rx="4" fill="#000000" opacity="0.8"/>
+    <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#F27A7D" letter-spacing="2">02 // SOLITUDE IN KYOTO</text>
+  </g>
+</svg>

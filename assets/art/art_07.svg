@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg07" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#18040C"/>
+      <stop offset="70%" stop-color="#38081A"/>
+      <stop offset="100%" stop-color="#0E0207"/>
+    </linearGradient>
+    <linearGradient id="goldCircuit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+    <filter id="glow07">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg07)"/>
+
+  <!-- Sun Disc / Japanese Crest in Background -->
+  <circle cx="400" cy="380" r="220" fill="#E11D48" opacity="0.75"/>
+  <circle cx="400" cy="380" r="215" fill="none" stroke="#FFD54F" stroke-width="2" stroke-dasharray="8 12"/>
+
+  <!-- High-Tech Kimono Robe & Collar -->
+  <path d="M 180,1000 C 180,820 250,750 330,720 L 400,800 L 470,720 C 550,750 620,820 620,1000 Z" fill="#0A060A" stroke="#E11D48" stroke-width="2"/>
+  <!-- Overlapping Kimono Necklines (Eri) -->
+  <path d="M 330,720 L 440,860" stroke="#FFF" stroke-width="6"/>
+  <path d="M 470,720 L 360,860" stroke="#FFD54F" stroke-width="6"/>
+
+  <!-- Porcelain White Geisha Face & Slender Neck -->
+  <path d="M 360,600 L 440,600 L 430,490 L 370,490 Z" fill="#FFF5F5"/>
+  <path d="M 335,480 C 335,390 350,330 400,330 C 450,330 465,390 465,480 C 465,545 440,575 400,575 C 360,575 335,545 335,480 Z" fill="#FFF5F5"/>
+
+  <!-- Crimson Lip & Eye Accents -->
+  <path d="M 390,535 Q 400,542 410,535 Q 400,545 390,535 Z" fill="#E11D48"/>
+  <path d="M 360,465 Q 375,455 385,465" stroke="#E11D48" stroke-width="3" fill="none"/>
+  <path d="M 440,465 Q 425,455 415,465" stroke="#E11D48" stroke-width="3" fill="none"/>
+  <!-- Gold circuit traces on temple -->
+  <path d="M 345,440 L 365,440 L 370,455" stroke="url(#goldCircuit)" stroke-width="1.8" fill="none" filter="url(#glow07)"/>
+  <path d="M 455,440 L 435,440 L 430,455" stroke="url(#goldCircuit)" stroke-width="1.8" fill="none" filter="url(#glow07)"/>
+
+  <!-- Traditional Shimada Hairstyle with Cybernetic Fiber Optics -->
+  <path d="M 340,360 C 300,280 320,180 400,170 C 480,180 500,280 460,360 L 475,340 C 510,380 520,440 500,480 C 485,430 470,410 460,400 C 450,340 350,340 340,400 C 330,410 315,430 300,480 C 280,440 290,380 325,340 Z" fill="#0C070C"/>
+
+  <!-- Fiber-Optic Kanzashi Hairpins (Glowing Golden Needles) -->
+  <g filter="url(#glow07)">
+    <line x1="280" y1="280" x2="520" y2="180" stroke="#FFD54F" stroke-width="4" stroke-linecap="round"/>
+    <line x1="280" y1="230" x2="520" y2="330" stroke="#E11D48" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="280" cy="280" r="8" fill="#FFD54F"/>
+    <circle cx="520" cy="330" r="8" fill="#E11D48"/>
+  </g>
+
+  <!-- Tag -->
+  <g transform="translate(60, 910)">
+    <rect x="0" y="0" width="260" height="34" rx="4" fill="#000000" opacity="0.8"/>
+    <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#E11D48" letter-spacing="2">07 // CYBER GEISHA NEO</text>
+  </g>
+</svg>

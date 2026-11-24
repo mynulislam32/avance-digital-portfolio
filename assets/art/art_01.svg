@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg01" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#080B12"/>
+      <stop offset="60%" stop-color="#121829"/>
+      <stop offset="100%" stop-color="#1E0B24"/>
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#0080FF"/>
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF007A"/>
+      <stop offset="100%" stop-color="#9900FF"/>
+    </linearGradient>
+    <linearGradient id="jacket" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E2333"/>
+      <stop offset="100%" stop-color="#0E111A"/>
+    </linearGradient>
+    <filter id="glow01" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="url(#bg01)"/>
+
+  <!-- City Skyline Grid & Fog in Distance -->
+  <g opacity="0.25">
+    <rect x="60" y="320" width="70" height="400" fill="#00F0FF"/>
+    <rect x="150" y="240" width="90" height="480" fill="#FF007A"/>
+    <rect x="270" y="360" width="80" height="360" fill="#00F0FF"/>
+    <rect x="520" y="280" width="100" height="440" fill="#FF007A"/>
+    <rect x="640" y="340" width="80" height="380" fill="#00F0FF"/>
+    <line x1="0" y1="720" x2="800" y2="720" stroke="#00F0FF" stroke-width="2"/>
+    <!-- Neon billboard signs -->
+    <text x="170" y="300" font-family="monospace" font-size="20" fill="#00F0FF" letter-spacing="4">NEO-TOKYO</text>
+    <text x="540" y="340" font-family="monospace" font-size="18" fill="#FF007A" letter-spacing="3">CYBER//2026</text>
+  </g>
+
+  <!-- Rain streaks -->
+  <g stroke="#00F0FF" stroke-width="1.2" opacity="0.3" stroke-linecap="round">
+    <line x1="120" y1="40" x2="100" y2="180"/>
+    <line x1="340" y1="80" x2="320" y2="240"/>
+    <line x1="580" y1="20" x2="560" y2="200"/>
+    <line x1="720" y1="120" x2="700" y2="300"/>
+    <line x1="220" y1="200" x2="200" y2="380"/>
+    <line x1="680" y1="260" x2="660" y2="440"/>
+  </g>
+
+  <!-- Character Silhouette & Jacket -->
+  <!-- Shoulders & High Collar -->
+  <path d="M 160,1000 C 160,820 220,740 280,720 L 320,600 C 350,600 450,600 480,600 L 520,720 C 580,740 640,820 640,1000 Z" fill="url(#jacket)"/>
+  
+  <!-- Cyber Jacket Panels & Neon Piping -->
+  <path d="M 280,720 L 360,760 L 360,1000" stroke="#00F0FF" stroke-width="3" fill="none" filter="url(#glow01)"/>
+  <path d="M 520,720 L 440,760 L 440,1000" stroke="#FF007A" stroke-width="3" fill="none" filter="url(#glow01)"/>
+  <!-- High Collar Shell -->
+  <path d="M 310,640 L 290,520 L 380,560 L 400,640 Z" fill="#151A26" stroke="#00F0FF" stroke-width="2"/>
+  <path d="M 490,640 L 510,520 L 420,560 L 400,640 Z" fill="#1A1F2E" stroke="#FF007A" stroke-width="2"/>
+
+  <!-- Neck & Chin -->
+  <path d="M 350,560 L 450,560 L 440,490 L 360,490 Z" fill="#DDBBAA"/>
+  <!-- Cybernetic Neck Ports -->
+  <rect x="365" y="520" width="20" height="8" rx="2" fill="#00F0FF" filter="url(#glow01)"/>
+  <rect x="415" y="520" width="20" height="8" rx="2" fill="#FF007A" filter="url(#glow01)"/>
+
+  <!-- Head Base & Face -->
+  <path d="M 330,480 C 330,420 340,320 400,320 C 460,320 470,420 470,480 C 470,520 440,550 400,550 C 360,550 330,520 330,480 Z" fill="#F0CFC0"/>
+  <!-- Lips -->
+  <path d="M 385,515 Q 400,520 415,515" stroke="#BA6A6A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Cybernetic HUD Visor (Iconic Feature) -->
+  <g filter="url(#glow01)">
+    <path d="M 310,400 L 490,400 L 480,450 L 400,465 L 320,450 Z" fill="url(#neonCyan)" opacity="0.95"/>
+    <path d="M 320,410 L 480,410" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+    <!-- Digital Data streams on Visor -->
+    <text x="335" y="440" font-family="monospace" font-size="11" font-weight="bold" fill="#080B12" letter-spacing="2">REC // 99.4% [SYS.ON]</text>
+  </g>
+
+  <!-- Cyber Hair: Edgy cropped angular silhouette -->
+  <path d="M 330,410 C 310,360 320,270 400,260 C 480,270 490,360 470,410 L 490,330 L 450,290 L 430,240 L 390,260 L 360,250 L 340,310 Z" fill="#0C0E14"/>
+  <path d="M 330,350 L 310,380 L 340,370 L 315,420 L 335,400 L 320,450" fill="#0C0E14"/>
+  <path d="M 470,350 L 490,380 L 460,370 L 485,420 L 465,400 L 480,450" fill="#0C0E14"/>
+  <!-- Hair Highlights -->
+  <path d="M 360,280 Q 400,270 440,300" stroke="#00F0FF" stroke-width="3" fill="none" filter="url(#glow01)"/>
+
+  <!-- Floating Holographic Data Rings -->
+  <circle cx="400" cy="420" r="140" fill="none" stroke="#FF007A" stroke-width="1" stroke-dasharray="8 12" opacity="0.5"/>
+  <circle cx="400" cy="420" r="180" fill="none" stroke="#00F0FF" stroke-width="1.5" stroke-dasharray="24 16" opacity="0.6"/>
+
+  <!-- Character Title Tag in Frame -->
+  <g transform="translate(60, 910)">
+    <rect x="0" y="0" width="260" height="34" rx="4" fill="#000000" opacity="0.8"/>
+    <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#00F0FF" letter-spacing="2">01 // CYBERPUNK NOMAD</text>
+  </g>
+</svg>

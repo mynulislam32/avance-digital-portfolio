@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg03" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E1217"/>
+      <stop offset="70%" stop-color="#1B222C"/>
+      <stop offset="100%" stop-color="#080A0D"/>
+    </linearGradient>
+    <linearGradient id="bladeGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#FF2A55"/>
+      <stop offset="100%" stop-color="#7A001E"/>
+    </linearGradient>
+    <linearGradient id="goldPlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#8D6E63"/>
+    </linearGradient>
+    <filter id="glow03">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg03)"/>
+
+  <!-- Circular Cyber Halo Grid -->
+  <circle cx="400" cy="400" r="220" fill="none" stroke="#2B3648" stroke-width="2"/>
+  <circle cx="400" cy="400" r="200" fill="none" stroke="#FF2A55" stroke-width="1.5" stroke-dasharray="12 18" opacity="0.6"/>
+  <circle cx="400" cy="400" r="180" fill="none" stroke="#FFE082" stroke-width="1" stroke-dasharray="6 24" opacity="0.5"/>
+
+  <!-- High-Frequency Katana (Foreground Right) -->
+  <g filter="url(#glow03)">
+    <line x1="680" y1="120" x2="520" y2="920" stroke="url(#bladeGlow)" stroke-width="10" stroke-linecap="round"/>
+    <line x1="680" y1="120" x2="520" y2="920" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Cybernetic Ronin Bust (Center) -->
+  <!-- Heavy Armored Shoulders / Sode Plating -->
+  <path d="M 120,950 L 240,700 L 320,680 L 400,740 L 480,680 L 560,700 L 680,950 Z" fill="#18202A" stroke="#2B3648" stroke-width="3"/>
+  <!-- Gold Inlaid Armor Crests -->
+  <path d="M 220,740 L 290,720 L 280,820 L 210,830 Z" fill="url(#goldPlate)"/>
+  <path d="M 580,740 L 510,720 L 520,820 L 590,830 Z" fill="url(#goldPlate)"/>
+
+  <!-- Mechanical Neck & Spine Servos -->
+  <rect x="360" y="580" width="80" height="120" rx="10" fill="#0F1318" stroke="#FF2A55" stroke-width="2"/>
+  <line x1="400" y1="590" x2="400" y2="690" stroke="#00F0FF" stroke-width="4" stroke-dasharray="6 6"/>
+
+  <!-- Helmet: Cyber Kabuto Face & Menpo (Mask) -->
+  <!-- Jaw / Menpo Mask -->
+  <path d="M 330,480 L 400,580 L 470,480 L 460,420 L 340,420 Z" fill="#1C2430" stroke="#FF2A55" stroke-width="3"/>
+  <!-- Ventilation Slits on Jaw -->
+  <line x1="380" y1="520" x2="420" y2="520" stroke="#FF2A55" stroke-width="2"/>
+  <line x1="385" y1="535" x2="415" y2="535" stroke="#FF2A55" stroke-width="2"/>
+  <line x1="390" y1="550" x2="410" y2="550" stroke="#FF2A55" stroke-width="2"/>
+
+  <!-- Horizontal Monocular Optic Visor -->
+  <g filter="url(#glow03)">
+    <rect x="340" y="380" width="120" height="24" rx="4" fill="#FF2A55"/>
+    <circle cx="400" cy="392" r="8" fill="#FFFFFF"/>
+    <circle cx="400" cy="392" r="4" fill="#FF2A55"/>
+  </g>
+
+  <!-- Helmet Crest / Maedate (Crescent Moon Samurai Horns) -->
+  <path d="M 400,280 C 320,240 240,140 220,80 C 260,160 350,220 400,220 C 450,220 540,160 580,80 C 560,140 480,240 400,280 Z" fill="url(#goldPlate)" stroke="#FFE082" stroke-width="2" filter="url(#glow03)"/>
+  <circle cx="400" cy="250" r="14" fill="#FF2A55" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Tag -->
+  <g transform="translate(60, 910)">
+    <rect x="0" y="0" width="260" height="34" rx="4" fill="#000000" opacity="0.8"/>
+    <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#FF2A55" letter-spacing="2">03 // CYBERNETIC RONIN</text>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg09" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#3B2610"/>
+    </linearGradient>
+    <linearGradient id="solarGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="40%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <filter id="glow09">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg09)"/>
+
+  <!-- Giant Dawn Sun Halo -->
+  <circle cx="400" cy="400" r="220" fill="url(#solarGold)" opacity="0.25"/>
+  <circle cx="400" cy="400" r="200" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="16 12" opacity="0.6"/>
+
+  <!-- Hard-Light Geometric Energy Wings Spanning Outward -->
+  <g filter="url(#glow09)">
+    <!-- Left Wing Feathers -->
+    <polygon points="340,540 180,360 260,520" fill="#FEF08A" opacity="0.8"/>
+    <polygon points="300,560 80,380 200,560" fill="#F59E0B" opacity="0.75"/>
+    <polygon points="260,600 40,460 160,620" fill="#D97706" opacity="0.7"/>
+    <!-- Right Wing Feathers -->
+    <polygon points="460,540 620,360 540,520" fill="#FEF08A" opacity="0.8"/>
+    <polygon points="500,560 720,380 600,560" fill="#F59E0B" opacity="0.75"/>
+    <polygon points="540,600 760,460 640,620" fill="#D97706" opacity="0.7"/>
+  </g>
+
+  <!-- Golden Armored Torso & Cuirass -->
+  <path d="M 220,1000 C 220,840 280,780 340,740 L 400,770 L 460,740 C 520,780 580,840 580,1000 Z" fill="#1E293B" stroke="url(#solarGold)" stroke-width="3"/>
+  <!-- Gold Plated Core -->
+  <polygon points="400,770 430,880 400,940 370,880" fill="url(#solarGold)"/>
+
+  <!-- Neck & Face -->
+  <path d="M 370,640 L 430,640 L 425,540 L 375,540 Z" fill="#E2D4C8"/>
+  <path d="M 345,500 C 345,420 360,360 400,360 C 440,360 455,420 455,500 C 455,550 435,580 400,580 C 365,580 345,550 345,500 Z" fill="#F8E8DD"/>
+
+  <!-- Winged Valkyrie Circlet / Helm -->
+  <g filter="url(#glow09)">
+    <path d="M 330,420 L 400,450 L 470,420" stroke="#F59E0B" stroke-width="4" fill="none"/>
+    <!-- Winged side feathers on helm -->
+    <polygon points="330,420 280,320 340,380" fill="url(#solarGold)"/>
+    <polygon points="470,420 520,320 460,380" fill="url(#solarGold)"/>
+  </g>
+
+  <!-- Reflective Cybernetic Visor -->
+  <path d="M 355,460 L 445,460 L 435,495 L 400,510 L 365,495 Z" fill="#F59E0B" filter="url(#glow09)"/>
+  <line x1="365" y1="470" x2="435" y2="470" stroke="#FFFFFF" stroke-width="1.5"/>
+
+  <!-- Flowing Golden Hair in Wind -->
+  <path d="M 345,420 C 310,500 280,620 240,760 C 290,700 330,580 345,490 Z" fill="#FEF08A" opacity="0.9"/>
+  <path d="M 455,420 C 490,500 520,620 560,760 C 510,700 470,580 455,490 Z" fill="#FEF08A" opacity="0.9"/>
+
+  <!-- Tag -->
+  <g transform="translate(60, 910)">
+    <rect x="0" y="0" width="260" height="34" rx="4" fill="#000000" opacity="0.8"/>
+    <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="bold" fill="#F59E0B" letter-spacing="2">09 // VALKYRIE OF THE SPIRE</text>
+  </g>
+</svg>
